@@ -24,10 +24,10 @@ again:
   lda hello_world,x
   cmp #0 ; check if the end of string has been encountered.
   beq done
-  ;stx save_x ; X should not be affected by CHROUT, but if that changes in future firmware,
+  stx save_x ; X should not be affected by CHROUT, but if that changes in future firmware,
               ; please use `save_x`
   jsr CHROUT
-  ;ldx save_x
+  ldx save_x
   inx
   jmp again
 

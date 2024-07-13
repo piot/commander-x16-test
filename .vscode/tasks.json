@@ -7,9 +7,9 @@
 			"command": "rm",
 			"args": [
 				"-f",
-				"main.prg",
-				"main.dbg",
-				"main.fdb"
+				"${fileBasenameNoExtension}.prg",
+				"${fileBasenameNoExtension}.dbg",
+				"${fileBasenameNoExtension}.fdb"
 			],
 			"problemMatcher": []
 		},
@@ -18,9 +18,9 @@
 			"type": "shell",
 			"command": "ca65",
 			"args": [
-				"main.s",
+				"${file}",
 				"-g",
-				"-o", "main.o",
+				"-o", "${fileBasenameNoExtension}.o",
 				"-t", "cx16"
 			],
 			"group": "build",
@@ -44,9 +44,9 @@
 			"command": "ld65",
 			"args": [
 				"-C", "cx16.cfg",
-				"-o", "main.prg",
-				"--dbgfile", "main.dbg",
-				"main.o"
+				"-o", "${fileBasenameNoExtension}.prg",
+				"--dbgfile", "${fileBasenameNoExtension}.dbg",
+				"${fileBasenameNoExtension}.o"
 			],
 			"group": {
 				"kind": "build",
